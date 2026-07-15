@@ -8,16 +8,28 @@
 </head>
 <body>
   <div class="container">
-    <h1>Water Quest</h1>
-    <p class="game-instructions">Collect 20 items to complete the game!</p>
+    <h1 style="font-family:'Georgia'">Water Quest</h1>
+    <p class="game-instructions" style="font-family:'Georgia'">Collect 20 items to complete the game!</p>
     <div class="stats">
-      <p>Cans Collected: <span id="current-cans">0</span></p>
-      <p>Time Left: <span id="timer">30</span>s</p>
+      <p style="font-family:'Georgia'">Cans Collected: <span id="current-cans">0</span></p>
+      <p style="font-family:'Georgia'">Time Left: <span id="timer">30</span>s</p>
     </div>
     <div id="achievements" class="achievement"></div>
     <div class="game-grid"></div>
-    <button id="start-game">Start Game</button>
+    <div id="start-game">
+      <button id="Easy-game" style="font-family:'Georgia'">Easy</button>
+      <button id="Intermediate-game" style="font-family:'Georgia'">Intermediate</button>
+      <button id="Hard-game" style="font-family:'Georgia'">Hard</button>
+    </div>
   </div>
+
+  <footer>
+    <div class="footerlink">
+      <a href="https://www.charitywater.org/" style="font-family:'Georgia'">Support Charity: Water here!</a>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
+
 </html>

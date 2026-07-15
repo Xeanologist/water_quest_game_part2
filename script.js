@@ -95,8 +95,8 @@ function endGame() {
   }
 }
 
-// Initializes and starts a new game
-function startGame() {
+// Initializes and starts a new EASY game
+function startEasyGame() {
   if (gameActive) return; // Prevent starting a new game if one is already active
 
   // Resets the timer to 30
@@ -118,8 +118,57 @@ function startGame() {
   timerDown();
 }
 
+// Initializes and starts a new INTERMEDIATE game
+function startIntGame() {
+  if (gameActive) return; // Prevent starting a new game if one is already active
 
+  // Resets the timer to 30
+  const timerElement = document.getElementById('timer');
+  let currentTime = parseInt(timerElement.textContent);
+  currentTime = 30;
+  timerElement.textContent = currentTime;
 
-// Set up click handler for the start button
-document.getElementById('start-game').addEventListener('click', startGame);
+  clearInterval(spawnInterval);
+  gameActive = true;
+  currentCans = 0;
+  document.getElementById('current-cans').textContent = currentCans;
+  createGrid(); // Set up the game grid
+  spawnInterval = setInterval(spawnWaterCan, 700); // Spawn water cans every second
+  timerInterval = setInterval(timerDown, 1000); // Update the timer every second
+  
+  // Ends game after timeOut is reached
+  setTimeout(endGame, 30000);
+  timerDown();
+}
 
+// Initializes and starts a new HARD game
+function startHardGame() {
+  if (gameActive) return; // Prevent starting a new game if one is already active
+
+  // Resets the timer to 30
+  const timerElement = document.getElementById('timer');
+  let currentTime = parseInt(timerElement.textContent);
+  currentTime = 30;
+  timerElement.textContent = currentTime;
+
+  clearInterval(spawnInterval);
+  gameActive = true;
+  currentCans = 0;
+  document.getElementById('current-cans').textContent = currentCans;
+  createGrid(); // Set up the game grid
+  spawnInterval = setInterval(spawnWaterCan, 500); // Spawn water cans every second
+  timerInterval = setInterval(timerDown, 1000); // Update the timer every second
+  
+  // Ends game after timeOut is reached
+  setTimeout(endGame, 30000);
+  timerDown();
+}
+
+// Set up click handler for the EASY button
+document.getElementById('Easy-game').addEventListener('click', startEasyGame);
+
+// Int Button Startup
+document.getElementById('Intermediate-game').addEventListener('click', startIntGame);
+
+// Hard Button Startup
+document.getElementById('Hard-game').addEventListener('click', startHardGame);
